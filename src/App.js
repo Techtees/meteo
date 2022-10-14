@@ -4,18 +4,18 @@ import Main from "./components/Main";
 import Settings from "./components/Settings";
 import { AppProvider } from "./context/AppContext";
 import Layout from "./container/Layout";
-
+import { weather } from "./data/api/weather";
 
 
 function App() {
+  
   return (
     <AppProvider>
-      <div className="flex">
       <BrowserRouter>
             <Routes>
               <Route exact path="/" element = {
                 <Layout>
-                <Main />
+                <Main/>
               </Layout>
               } 
               />
@@ -26,14 +26,13 @@ function App() {
                 } 
                 />
               <Route path= '/settings' element ={ 
-                 <Layout>
+                  <Layout>
                    <Settings />
                   </Layout>
                 }
                  />
             </Routes>
       </BrowserRouter>
-    </div>
     </AppProvider>
   );
 }
