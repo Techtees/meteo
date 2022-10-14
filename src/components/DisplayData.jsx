@@ -1,3 +1,5 @@
+import ReactApexChart from "react-apexcharts"
+
 function DisplayData () {
 
     const data = [
@@ -24,8 +26,41 @@ function DisplayData () {
         { id:2,varaibles:'temperature'},
         { id:3,varaibles:'temperature'},
     ]
+
+    const series = [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }, {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      }] 
+
+     const options = {
+        chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+    }
+
+
+
     return (
-        <div className="w-[80%]">
+        <div className="w-[90%]">
             <div  className=" mx-auto max-w-[700px] mt-[3rem] p-3 ">
                 <h1 className="text-[#c4c4c4] font-normal text-5xl text-center mb-8">Meteorologic data for Sinj</h1>
                 <form action=" w-[80%] max-w-[500px]">
@@ -36,16 +71,20 @@ function DisplayData () {
                 </form>
                 
             </div>
-            <div className="p-[2rem] pt-5">
+            <div className=" w-full mx-auto p-[2rem] pt-5">
                 <h1 className="text-3xl font-bold">Hourly Weather Variables</h1>
                 <div className="mt-[2rem] grid grid-cols-4">
                 {
-                    data.map((data) => (
-                        <div className="">
-                            <input type="radio" /> <label>{data.varaibles}</label>
+                    data.map((data, index) => (
+                        <div key={index} className="">
+                            <input type="checkbox" /> <label className="text-lg">{data.varaibles}</label>
                          </div>
                     ))
                 }
+                </div>
+
+                <div className="mt-[6rem]">
+                    <ReactApexChart options={options} series={series} type="area" height={350} />
                 </div>
             </div>
         </div>
