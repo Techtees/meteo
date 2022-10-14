@@ -1,4 +1,4 @@
-
+import MobileIcon from './utils/MobileIcon';
 import Button from './utils/Button'
 
 function Settings() {
@@ -19,8 +19,9 @@ function Settings() {
     ]
 
     return (
-         <div className="w-[100%]">
-            <div className="mx-auto w-[100%] mt-[3em]  max-w-[700px]">
+         <div className="w-[100%] relative">
+            <MobileIcon />
+            <div className="mx-auto mt-[3em]  max-w-[700px]">
                <h1 className="text-4xl font-normal text-[#929292] text-center">Application Settings</h1>
                 <form action="" className="mt-[4rem] mb-8 w-[100%] mx-auto max-w-[700px] ">
                     <p className="text-center text-xl italic">Temperature Unit</p>
@@ -43,7 +44,7 @@ function Settings() {
                             ))
                         }
                     </div>
-                    <p className="text-center text-xl italic mt-8">Precipitation Unit</p>
+                    <p className="text-center text-xl italic mt-8 md-[mt-3]">Precipitation Unit</p>
                     <div className="flex flex-row justify-center gap-6 mt-4">
                         {
                             precipitationData.map((data) => (
@@ -53,22 +54,22 @@ function Settings() {
                             ))
                         }
                     </div>
-                    <p className="text-center mt-[4rem] text-xl italic">TImezone</p>   
+                    <p className="text-center mt-[2rem] md:mt-[4rem] text-xl italic">TImezone</p>   
                     <div className="flex flex-col justify-center items-center ">
-                        <select name="" id="" className="p-3 mt-4  w-[70%] rounded-md border "> 
+                        <select name="" id="" className="p-3 mt-2 md:mt-4  w-[70%] rounded-md border "> 
                             <option value="">Hourly View</option>
                             <option value="">Daily View</option>
                         </select>
                     </div> 
                     <p className="text-center text-xl mt-6 italic">PastDays</p>   
                     <div className="flex flex-col justify-center items-center">
-                        <select name="" id="" className="p-3 mt-4 rounded-md w-[70%]  border "> 
+                        <select name="" id="" className="p-3 mt-2 md:mt-4 rounded-md w-[70%]  border "> 
                             <option value="">Hourly View</option>
                             <option value="">Daily View</option>
                         </select>
                     </div>    
 
-                    <div className="btn mt-[8rem] flex justify-center gap-[5rem] items-center">
+                    <div className="btn mt-[4rem] md:mt-[6rem] flex  flex-col justify-center md:flex-row  gap-[2rem] md:gap-[5rem] items-center">
                         <Button text='Revert settings to default'/>
                         <Button text='Delete favourites'  />
                     </div>                 
