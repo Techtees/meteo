@@ -1,4 +1,5 @@
 import ReactApexChart from "react-apexcharts"
+import MobileIcon from './utils/MobileIcon';
 
 function DisplayData () {
 
@@ -60,32 +61,34 @@ function DisplayData () {
 
 
     return (
-        <div className="w-[90%]">
-            <div  className=" mx-auto max-w-[700px] mt-[3rem] p-3 ">
-                <h1 className="text-[#c4c4c4] font-normal text-5xl text-center mb-8">Meteorologic data for Sinj</h1>
-                <form action=" w-[80%] max-w-[500px]">
-                    <select name="" id="" className="p-4 border outline-none rounded-md w-[100%] "> 
-                        <option value="">Hourly View</option>
-                        <option value="">Daily View</option>
-                    </select>
-                </form>
-                
-            </div>
-            <div className=" w-full mx-auto p-[2rem] pt-5">
-                <h1 className="text-3xl font-bold">Hourly Weather Variables</h1>
-                <div className="mt-[2rem] grid grid-cols-4">
-                {
-                    data.map((data, index) => (
-                        <div key={index} className="">
-                            <input type="checkbox" /> <label className="text-lg">{data.varaibles}</label>
-                         </div>
-                    ))
-                }
-                </div>
+        <div className="w-[100%] relative">
+          <MobileIcon />
+            <div className="mx-auto">
+              <div  className="mt-[3rem] p-3 ">
+                  <h1 className="text-[#c4c4c4] font-normal text-5xl text-center mb-8">Meteorologic data for Sinj</h1>
+                  <form action="" className="flex flex-col items-center">
+                      <select name="" id="" className="p-4 border outline-none rounded-md  w-[100%] max-w-[700px]"> 
+                          <option value="">Hourly View</option>
+                          <option value="">Daily View</option>
+                      </select>
+                  </form>
+              </div>
+              <div className=" w-full mx-auto p-[2rem] pt-5">
+                  <h1 className="text-3xl font-bold">Hourly Weather Variables</h1>
+                  <div className="mt-[2rem] grid md:grid-cols-4 grid-cols-2">
+                  {
+                      data.map((data, index) => (
+                          <div key={index} className="">
+                              <input type="checkbox" /> <label className="text-lg">{data.varaibles}</label>
+                          </div>
+                      ))
+                  }
+                  </div>
 
-                <div className="mt-[6rem]">
-                    <ReactApexChart options={options} series={series} type="area" height={350} />
-                </div>
+                  <div className="mt-[6rem]">
+                      <ReactApexChart options={options} series={series} type="area" height={350} />
+                  </div>
+              </div>
             </div>
         </div>
     )

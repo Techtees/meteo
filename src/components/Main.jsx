@@ -1,15 +1,18 @@
-import {FaSearch} from 'react-icons/fa'
+import {FaSearch, FaBars} from 'react-icons/fa'
 import SearchFilter from './SearchFIlter';
 import {useContext} from 'react'
 import AppContext from '../context/AppContext';
+import MobileIcon from './utils/MobileIcon';
 
-function Main() {
+
+function Main({handleOpenmenu}) {
     // const [cityData, setCitydata] = useState(city)
     const {cityData, inputValue, handleChange, handleFavourite} = useContext(AppContext)
 
    
     return (
-        <div className='bg-[#f2f2f2] w-[100%]'>
+        <div className='w-[100%] relative '>
+            <MobileIcon handleOpenmenu={handleOpenmenu} />
             <div className="mx-auto pt-[14rem] ">
             <h1 className='text-center  mb-[3rem] text-5xl font-bold text-primary-purple_light'>Meteo App</h1>
             <form action="">
