@@ -9,11 +9,14 @@ module.exports = {
       roboto: ['Roboto', defaultTheme.fontFamily.sans]
     },
     colors:{
+      white: '#ffff',
+      dark: '#000',
+      grey:'#f1f1f1',
       primary:{
-        purple_dark:'#240D57',
-        purple_light:'#240D57',
-        evited_purple:'#8456EC',
-        Evited_pink:'#E87BF8',
+        purple_dark:'#09143B',
+        purple_light:'#161E42',
+        light_blue:'#1AA2EF',
+        purple:'#6627ED',
       },
     },
     extend: {},
