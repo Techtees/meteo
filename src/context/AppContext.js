@@ -8,6 +8,7 @@ export const AppProvider = ({children}) => {
     const [inputValue, setInputValue] = useState()
     const [cityData, setCitydata] = useState(city)
     const [favourite, setFavourite] = useState ([])
+    const [openMenu, setOpenMenu] = useState(false)
     // const [starredIcon, setStarredIcon] = useState()
 
     // add favourite
@@ -42,6 +43,11 @@ export const AppProvider = ({children}) => {
         const inputValue = e.target.value.toLowerCase();
         setInputValue(inputValue)
     }
+
+    
+  function handleOpenmenu(){
+    setOpenMenu(!openMenu)
+  }
     
     return <AppContext.Provider value={{
         cityData,
@@ -50,6 +56,8 @@ export const AppProvider = ({children}) => {
         addFavourite,
         removeFavourite,
         favourite,
+        openMenu,
+        handleOpenmenu
     }} >
       {children}
     </AppContext.Provider>
