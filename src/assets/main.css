@@ -19,11 +19,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #929292;
+    background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ffff;
+    background-color: #09143B;
 }
 
 
