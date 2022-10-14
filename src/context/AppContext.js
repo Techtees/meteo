@@ -8,7 +8,7 @@ export const AppProvider = ({children}) => {
     const [inputValue, setInputValue] = useState()
     const [cityData, setCitydata] = useState(city)
     const [favourite, setFavourite] = useState ([])
-    const [starredIcon, setStarredIcon] = useState()
+    // const [starredIcon, setStarredIcon] = useState()
 
     // add favourite
     const addFavourite = (item, lat, lng) => {
@@ -37,7 +37,7 @@ export const AppProvider = ({children}) => {
            
        )
      }
-     
+
      const handleChange = (e) => {
         const inputValue = e.target.value.toLowerCase();
         setInputValue(inputValue)
