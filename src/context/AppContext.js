@@ -46,6 +46,10 @@ export const AppProvider = ({children}) => {
         setInputValue(inputValue)
     }
 
+    const deleteAllFavourite = () => {
+        setFavourite([])
+    }
+
     
   function handleOpenmenu(){
     setOpenMenu(!openMenu)
@@ -63,7 +67,9 @@ export const AppProvider = ({children}) => {
         removeFavourite,
         favourite,
         openMenu,
-        handleOpenmenu
+        handleOpenmenu,
+        setFavourite,
+        deleteAllFavourite
     }} >
       {children}
     </AppContext.Provider>
