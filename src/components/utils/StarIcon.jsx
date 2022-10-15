@@ -1,5 +1,5 @@
 import { FaRegStar, FaStar} from 'react-icons/fa'
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import AppContext from '../../context/AppContext';
 
 function StarIcon ({item, lat, lng }) {
