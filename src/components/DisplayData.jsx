@@ -121,7 +121,7 @@ function DisplayData() {
       <MobileIcon />
       <div className="mx-auto">
         <div className="mt-[3rem] p-3 ">
-          <h1 className="text-[#c4c4c4] font-normal text-3xl md:text-5xl text-center mb-8">
+          <h1 className="text-[#c4c4c4] font-normal text-xl md:text-5xl text-center mb-8">
             Meteorologic data for{" "}
             <span className="text-primary-purple ">{city}</span>
           </h1>
