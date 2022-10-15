@@ -1,4 +1,4 @@
-import {FaSearch, FaBars} from 'react-icons/fa'
+import {FaSearch} from 'react-icons/fa'
 import SearchFilter from './SearchFIlter';
 import {useContext} from 'react'
 import AppContext from '../context/AppContext';
