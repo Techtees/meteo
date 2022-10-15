@@ -6,31 +6,35 @@ import { getAllWeatherData } from "../data/api/weather";
 import { useSearchParams } from "react-router-dom";
 
 const hourlyData = [
-  { id: 1, label: "Temperature (2 m)", value:"temperature_2m" },
-  { id: 2, label: "Relative Humidity(2 m)", value:"relativehumidity_2m" },
-  { id: 3, label: "Dewpoint (2 m)", value:"dewpoint_2m" },
-  { id: 4, label: "Weathercode", value:"weathercode" },
-  { id: 1, label: "Sealevel Pressure", value:"pressure_msl" },
-  { id: 2, label: "Surface Pressure", value:"surface_pressure" },
-  { id: 3, label: "Wind Speed (10 m)", value:"windspeed_10m" },
-  { id: 4, label: "Wind Speed (80 m)", value:"windspeed_80m" },
-  { id: 1, label: "Wind Speed (120 m)", value:"Wwindspeed_120m" },
-  { id: 2, label: "Soil Temperature (0 cm)", value:"soil_temperature_0cm" },
-  { id: 3, label: "Soil Temperature (6 cm)", value:"soil_temperature_6cm" },
-  { id: 4, label: "Soil Temperature (18 cm)", value:"soil_temperature_18cm" },
+  { id: 1, label: "Temperature (2 m)", value: "temperature_2m" },
+  { id: 2, label: "Relative Humidity(2 m)", value: "relativehumidity_2m" },
+  { id: 3, label: "Dewpoint (2 m)", value: "dewpoint_2m" },
+  { id: 4, label: "Weathercode", value: "weathercode" },
+  { id: 1, label: "Sealevel Pressure", value: "pressure_msl" },
+  { id: 2, label: "Surface Pressure", value: "surface_pressure" },
+  { id: 3, label: "Wind Speed (10 m)", value: "windspeed_10m" },
+  { id: 4, label: "Wind Speed (80 m)", value: "windspeed_80m" },
+  { id: 1, label: "Wind Speed (120 m)", value: "Wwindspeed_120m" },
+  { id: 2, label: "Soil Temperature (0 cm)", value: "soil_temperature_0cm" },
+  { id: 3, label: "Soil Temperature (6 cm)", value: "soil_temperature_6cm" },
+  { id: 4, label: "Soil Temperature (18 cm)", value: "soil_temperature_18cm" },
 ];
 const dailyData = [
   { id: 1, label: "temperature_2m_max", value: "temperature_2m_max" },
-  { id: 2, label: "Apparent Temperature Max", value: "temperature_2m_max" },
+  {
+    id: 2,
+    label: "Apparent Temperature Max",
+    value: "apparent_temperature_max",
+  },
   { id: 3, label: "Precipitation Sum", value: "precipitation_sum" },
   { id: 4, label: "Rain Sum", value: "rain_sum" },
   { id: 1, label: "Showers Sum", value: "showers_sum" },
   { id: 2, label: "Snowfall Sum", value: "snowfall_sum" },
   { id: 3, label: "Shortwave Radiation Sum", value: "shortwave_radiation_sum" },
   { id: 4, label: "Precipitation Hours", value: "precipitation_hours" },
-  { id: 1, label: "Weather Code", value: "precipitation_hours" },
+  { id: 1, label: "Weather Code", value: "weathercode" },
   { id: 2, label: "Sun Rise", value: "sunrise" },
-  { id: 3, label: "Sun Rise", value: "sunrise" },
+  { id: 3, label: "Sun Set", value: "sunset" },
   { id: 4, label: "Evapotranspiration", value: "et0_fao_evapotranspiration" },
 ];
 
@@ -42,28 +46,33 @@ function DisplayData() {
   const city = searchParams.get("city");
 
   const [data, setData] = useState([]);
-  const [selectView, setSelectView] = useState(true);
+  const [isHourly, setIsHourly] = useState(true);
+  const [graphData, setGraphData] = useState({});
+  const currentView = isHourly ? "hourly" : "daily";
+  const currentViewData = isHourly ? hourlyData : dailyData;
 
   useEffect(() => {
-    setData([])
-  }, [selectView])
+    setData([]);
+  }, [isHourly]);
 
   useEffect(() => {
     if (data.length > 0) {
-      const allData = getAllWeatherData({
-        ...settings,
-        latitude: lat,
-        longitude: long,
-      }, {
-        view: selectView ? "hourly" : "daily",
-        data,
-      });
-      console.log(allData);
+      getAllWeatherData(
+        {
+          ...settings,
+          latitude: lat,
+          longitude: long,
+        },
+        {
+          view: currentView,
+          data,
+        }
+      ).then(setGraphData);
     }
   }, [data]);
 
   const handleSelectView = () => {
-    setSelectView(!selectView);
+    setIsHourly(!isHourly);
   };
 
   const handleSelectData = (e, value) => {
@@ -75,16 +84,13 @@ function DisplayData() {
     });
   };
 
-  const series = [
-    {
-      name: "series1",
-      data: [31, 40, 28, 51, 42, 109, 100],
-    },
-    {
-      name: "series2",
-      data: [11, 32, 45, 32, 34, 52, 41],
-    },
-  ];
+  const { time, ...restData } = graphData[currentView] || {};
+  const series = Object.entries(restData).map(([key, value]) => {
+    return {
+      data: value,
+      name: currentViewData.find(({ value }) => value === key).label,
+    };
+  });
 
   const options = {
     chart: {
@@ -99,15 +105,7 @@ function DisplayData() {
     },
     xaxis: {
       type: "datetime",
-      categories: [
-        "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
-      ],
+      categories: time || [],
     },
     tooltip: {
       x: {
@@ -115,6 +113,8 @@ function DisplayData() {
       },
     },
   };
+
+  
 
   return (
     <div className="w-[100%] relative">
@@ -139,11 +139,11 @@ function DisplayData() {
         </div>
         <div className=" w-full mx-auto p-[2rem] pt-5 ">
           <h1 className="text-3xl font-bold">
-            {selectView ? "Hourly Weather label" : "Daily Weather label"}
+            {isHourly ? "Hourly Weather label" : "Daily Weather label"}
           </h1>
           <div className="mt-[2rem] gap-2 grid md:grid-rows-3   md:grid-flow-col h-[170px] md:h-auto md:w-[100%] overflow-y-scroll ">
-            {(selectView ? hourlyData : dailyData).map((data, index) => (
-              <div key={data.value} className="">
+            {currentViewData.map((data, index) => (
+              <div key={`${currentView}_${data.value}`} className="">
                 <input
                   onChange={(e) => handleSelectData(e, data.value)}
                   type="checkbox"
@@ -152,8 +152,13 @@ function DisplayData() {
               </div>
             ))}
           </div>
-
+        
           <div className="mt-[3rem] md:mt-[6rem]">
+            <div className="text-center">{console.log(graphData)}
+               {graphData.latitude} °N {graphData.longitude} °E {graphData.elevation} M
+               <br />
+               Generated in <span className="text-sm">{graphData.generationtime_ms}  {graphData.timezone}</span>
+            </div>
             <ReactApexChart
               options={options}
               series={series}
