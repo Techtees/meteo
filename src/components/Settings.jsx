@@ -1,6 +1,7 @@
 import MobileIcon from './utils/MobileIcon';
 import Button from './utils/Button'
 import SettingContext from '../context/SettingContext';
+import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 
 function Settings() {
@@ -14,6 +15,8 @@ function Settings() {
         tempUnit,windUnit,precipitationUnit,timezone,pastDays,
         handleRevertSettings,
     } = useContext(SettingContext)
+
+    const {favourite,deleteAllFavourite} =useContext(AppContext)
 
     // console.log(handleChange)
 
@@ -107,7 +110,7 @@ function Settings() {
 
                     <div className="btn mt-[4rem] md:mt-[6rem] flex  flex-col justify-center md:flex-row  gap-[2rem] md:gap-[5rem] items-center" >
                         <Button text='Revert settings to default' handleClick={handleRevertSettings} />
-                        <Button text='Delete favourites' />
+                        <Button text='Delete favourites' handleClick={deleteAllFavourite}  />
                     </div>                 
                 </form>
             </div>
