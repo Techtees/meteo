@@ -30,7 +30,7 @@ const [collapse, setCollapse] = useState(true)
                 </h1>
             </div>
 
-            <div className='mt-[3em] overflow-hidden h-[500px]'>
+            <div className='mt-[3em] overflow-y-hidden h-[400px] overflow-y-scroll'>
                 <ul className=''>
                     {
                         favourite.map((item,index) => (
@@ -48,7 +48,7 @@ const [collapse, setCollapse] = useState(true)
             </div>
 
 
-            <div className='cursor-pointer absolute bottom-8 left-5'>
+            <div className='cursor-pointer absolute bottom-[-4rem] left-5'>
                 
 
                 <Link to='/settings' className='inline-flex '>
