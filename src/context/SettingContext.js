@@ -2,11 +2,11 @@ import { createContext, useState, useEffect } from "react";
 import { useLocalStorage } from "react-use";
 
 const defaultSetings = {
-  tempUnit: "celsius",
-  windUnit: "km/h",
-  precipitationUnit: "mm",
+  temperature_unit: "celsius",
+  windspeed_unit: "km/h",
+  precipitation_unit: "mm",
   timezone: "UTC",
-  pastDays: "0",
+  past_days: "0",
 };
 const SettingContext = createContext(defaultSetings);
 
@@ -15,13 +15,13 @@ export const SettingProvider = ({ children }) => {
     "settingsData",
     defaultSetings
   );
-  const [tempUnit, setTempUnit] = useState(setting.tempUnit);
-  const [windUnit, setWindUnit] = useState(setting.windUnit);
+  const [tempUnit, setTempUnit] = useState(setting.temperature_unit);
+  const [windUnit, setWindUnit] = useState(setting.windspeed_unit);
   const [precipitationUnit, setPrecipitationUnit] = useState(
-    setting.precipitationUnit
+    setting.precipitation_unit
   );
   const [timezone, setTimezone] = useState(setting.timezone);
-  const [pastDays, setPastDays] = useState(setting.pastDays);
+  const [pastDays, setPastDays] = useState(setting.past_days);
 
   console.log(setting);
 
@@ -54,11 +54,11 @@ export const SettingProvider = ({ children }) => {
   useEffect(() => {
     setSettings((prevSetting) => {
       return {
-        tempUnit,
-        windUnit,
-        precipitationUnit,
+        temperature_unit: tempUnit,
+        windspeed_unit: windUnit,
+        precipitation_unit: precipitationUnit,
         timezone,
-        pastDays,
+        past_days: pastDays,
       };
     });
   }, [tempUnit, windUnit, precipitationUnit, timezone, pastDays]);
