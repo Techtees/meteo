@@ -8,6 +8,7 @@ This is a Weather App with a search functionality where user can select a city a
 - CSS
 - Tailwind 
 - javascript
+- Context Api
 
 Used Libraries 
 React router - npm i react-router-dom@6.4.0
