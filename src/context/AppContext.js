@@ -11,17 +11,17 @@ export const AppProvider = ({children}) => {
     const [storedFavs, setStoredFavs] = useLocalStorage("favs", [])
     const [favourite, setFavourite] = useState (storedFavs)
     const [openMenu, setOpenMenu] = useState(false)
-    // const [starredIcon, setStarredIcon] = useState()
+
 
     // add favourite
-    const addFavourite = (item, lat, lng) => {
+    const addFavourite = (city, lat, lng) => {
        
         setFavourite(
              (favourite) => {
                  // used lat and lng as a check because it is unique
                  const exists = favourite.find((item) => item.lat === lat && item.lng === lng)
                  if(!exists) {
-                     return [...favourite, {item, lat, lng }]
+                     return [...favourite, {city, lat, lng }]
                  } else
               return favourite
              } 
