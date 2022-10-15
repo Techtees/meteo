@@ -11,7 +11,7 @@ const { favourite, openMenu, handleOpenmenu} = useContext(AppContext)
 const [collapse, setCollapse] = useState(true)
 
     return(
-        <div className={`bg-primary-purple_light h-full pt-[3rem]   ${collapse ? 'max-w-[250px]':'w-[80px]'} duration-500 absolute top-0 ${openMenu ? 'left-0 ':'left-[-500px] duration-500'} z-50 md:static md:block`}>
+        <div className={`bg-primary-purple_light h-[110vh] pt-[3rem]   ${collapse ? 'max-w-[250px]':'w-[80px]'} duration-500 absolute top-0 ${openMenu ? 'left-0 ':'left-[-500px] duration-500'} z-50 md:static md:block`}>
             <FaTimes className='text-xl text-white  mx-auto md:hidden' onClick={() => handleOpenmenu()}/>
             <div className="relative">
             <FaLongArrowAltLeft  className={`bg-[#fff] hidden md:block rounded-full text-xl md:text-2xl  absolute -right-3 top-0 cursor-pointer border  ${!collapse && 'rotate-180'}`}  onClick={() => setCollapse(!collapse)}/>

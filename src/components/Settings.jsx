@@ -49,7 +49,7 @@ function Settings() {
     ]
 
     return (
-         <div className="w-[100%] relative h-screen">
+         <div className="w-[100%] relative ">
             <MobileIcon />
             <div className="mx-auto mt-[3em]  max-w-[700px]">
                <h1 className="text-4xl font-normal text-[#929292] text-center">Application Settings</h1>
