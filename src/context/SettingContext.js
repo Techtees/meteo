@@ -23,7 +23,6 @@ export const SettingProvider = ({ children }) => {
   const [timezone, setTimezone] = useState(settings.timezone);
   const [pastDays, setPastDays] = useState(settings.past_days);
 
-//   console.log(setting);
 
   const handleTemperature = (e) => {
     const tempValue = e.target.value;

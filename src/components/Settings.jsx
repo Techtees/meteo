@@ -18,8 +18,6 @@ function Settings() {
 
     const {favourite,deleteAllFavourite} =useContext(AppContext)
 
-    // console.log(handleChange)
-
     const tempData = [
         {id:1,label:'Celsius °C', value: 'celsius'},
         {id:2,label:'Fahrenheit °F', value: 'fahrenheit'}
@@ -104,7 +102,6 @@ function Settings() {
                                     <option key={data.id}  value={data.value}  >{data.label}</option>
                                 ))
                             }
-                            {/* <option value="">Daily View</option> */}
                         </select>
                     </div>    
 

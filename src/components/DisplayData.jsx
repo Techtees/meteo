@@ -154,7 +154,7 @@ function DisplayData() {
           </div>
         
           <div className="mt-[3rem] md:mt-[6rem]">
-            <div className="text-center">{console.log(graphData)}
+            <div className="text-center">
                {graphData.latitude} °N {graphData.longitude} °E {graphData.elevation} M
                <br />
                Generated in <span className="text-sm">{graphData.generationtime_ms}  {graphData.timezone}</span>

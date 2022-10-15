@@ -6,10 +6,10 @@ import MobileIcon from './utils/MobileIcon';
 
 
 function Main({handleOpenmenu}) {
-    // const [cityData, setCitydata] = useState(city)
+    
     const {cityData, inputValue, handleChange, handleFavourite} = useContext(AppContext)
 
-   
+
     return (
         <div className='w-[100%] relative '>
             <MobileIcon handleOpenmenu={handleOpenmenu} />

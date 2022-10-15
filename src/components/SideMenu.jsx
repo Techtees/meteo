@@ -34,7 +34,7 @@ const [collapse, setCollapse] = useState(true)
                 <ul className=''>
                     {
                         favourite.map((item,index) => (
-                            <Link  to={`/details?city=${item.city}&lat=${item.lat}&long=${item.lng}`}  key={index}>
+                            <Link  to={`/details?city=${item.city}&lat=${item.lat}&long=${item.lng}`}  key={index}> 
                                 <li className={`text-white hover:bg-[#475569] p-2 rounded-md cursor-pointer  duration-400 `}  >
                                     <FaBullseye className={` text-2xl inline ${!collapse && 'mx-auto rotate-[360deg]'} duration-300 `} color='#ffff'/>   
                                     <span className={`text-md font-normal ${!collapse && 'hidden'} origin-left duration-400`}> {item.city} </span>

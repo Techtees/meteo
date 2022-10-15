@@ -1,5 +1,5 @@
 import DisplayData from "./components/DisplayData";
-import  {BrowserRouter, Routes, Route, useParams} from 'react-router-dom'
+import  {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Main from "./components/Main";
 import Settings from "./components/Settings";
 import { AppProvider } from "./context/AppContext";
