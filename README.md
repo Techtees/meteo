@@ -15,6 +15,7 @@ React router - npm i react-router-dom@6.4.0
 React icons  - npm i react-icons
 apex chart   - npm i react-apexcharts
 react-use    - npm i react-use
+Tailwind Css
 
 Preview App - [ProShop e-Commerce](https://proshop-ecommerce123.herokuapp.com)
 
