@@ -22,8 +22,8 @@ function Settings() {
         {id:2,label:'Fahrenheit °F', value: 'fahrenheit'}
     ]
     const windData = [
-        {id:1,label:'km/h', value: 'km/h'},
-        {id:2,label:'m/s', value: 'm/s'},
+        {id:1,label:'km/h', value: 'kmh'},
+        {id:2,label:'m/s', value: 'ms'},
         {id:3,label:'mph', value: 'mph'},
         {id:4,label:'kn', value: 'kn'}
     ]
