@@ -117,11 +117,11 @@ function DisplayData() {
   
 
   return (
-    <div className="w-[100%] relative">
+    <div className="w-[100%] h-[100vh] overflow-hidden relative">
       <MobileIcon />
       <div className="mx-auto">
         <div className="mt-[3rem] p-3 ">
-          <h1 className="text-[#c4c4c4] font-normal text-xl md:text-4xl text-center mb-8">
+          <h1 className="text-[#c4c4c4] font-normal text-3xl md:text-4xl text-center mb-8">
             Meteorologic data for{" "}
             <span className="text-primary-purple ">{city}</span>
           </h1>
