@@ -4,11 +4,10 @@ import AppContext from '../context/AppContext';
 import {Link} from 'react-router-dom'
 
 
+
 function SearchFilter() {
 
 const { cityData, inputValue } = useContext(AppContext)
-
-
   const filteredData = cityData.filter((item) => (item.city.toLowerCase().startsWith(inputValue)))
 
     return (
@@ -18,7 +17,7 @@ const { cityData, inputValue } = useContext(AppContext)
                     filteredData && filteredData.length > 0 ? (
                         filteredData.map((item,index) => ( 
                             <li key={index} className={`m-2 text-xl text-white flex block hover:bg-[#475569]`}>
-                                  <Link className="cursor-pointer rounded-md w-[90%] text-left p-2 " to='/details'>
+                                  <Link className="cursor-pointer rounded-md w-[90%] text-left p-2 " to={`/details?city=${item.city}&lat=${item.lat}&long=${item.lng}`}>
                                         <span>{item.city}</span>
                                   </Link>
                                 <span className="p-1 mt-1 cursor-pointer"><StarIcon item={item.city} lat={item.lat} lng={item.lng}  /> </span>
