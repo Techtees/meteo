@@ -15,15 +15,14 @@ React router - npm i react-router-dom@6.4.0
 React icons  - npm i react-icons
 apex chart   - npm i react-apexcharts
 react-use    - npm i react-use
-Tailwind Css
+Tailwind css
 
 Preview App - [Weather App](https://meteo-4s4nzjbp2-ptal.vercel.app/)
 
 
 ## Get Started
 
-In the frontend directory, run:
-`$ npm install`
-
 In the project directory, run:
 `npm install`
+
+## Install libraries used
