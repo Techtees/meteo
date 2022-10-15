@@ -1,9 +1,13 @@
 import SideMenu from "../components/SideMenu";
+import { SettingProvider } from "../context/SettingContext";
+
 
  const Layout = ({children}) => {
     return (  <div className="flex relative">
-        <SideMenu/>
-        {children}
+        <SettingProvider>
+            <SideMenu/>
+            {children}
+        </SettingProvider>
     </div>);
  }
   
