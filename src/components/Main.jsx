@@ -13,7 +13,7 @@ function Main({handleOpenmenu}) {
     return (
         <div className='w-[100%] relative '>
             <MobileIcon handleOpenmenu={handleOpenmenu} />
-            <div className="mx-auto pt-[14rem] ">
+            <div className="mx-auto pt-[5rem] md:pt-[14rem] ">
             <h1 className='text-center  mb-[3rem] text-5xl font-bold text-primary-purple_light'>Meteo App</h1>
             <form action="">
                 <div className="bg-primary-purple p-4 rounded-md flex align-middle mx-auto w-[80%] max-w-[700px]">
