@@ -117,7 +117,7 @@ function DisplayData() {
   
 
   return (
-    <div className="w-[100%] h-[100vh] overflow-hidden relative">
+    <div className="w-[100%] h-auto overflow-hidden relative">
       <MobileIcon />
       <div className="mx-auto">
         <div className="mt-[3rem] p-3 ">
@@ -153,7 +153,7 @@ function DisplayData() {
             ))}
           </div>
         
-          <div className="mt-[3rem] md:mt-[6rem]">
+          <div className="mt-[3rem] mb-0 md:mt-[6rem]">
             <div className="text-center">
                {graphData.latitude} °N {graphData.longitude} °E {graphData.elevation} M
                <br />
