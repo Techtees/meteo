@@ -16,7 +16,7 @@ function Settings() {
         handleRevertSettings,
     } = useContext(SettingContext)
 
-    const {favourite,deleteAllFavourite} =useContext(AppContext)
+    const {deleteAllFavourite} =useContext(AppContext)
 
     const tempData = [
         {id:1,label:'Celsius °C', value: 'celsius'},
