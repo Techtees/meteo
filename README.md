@@ -17,7 +17,7 @@ apex chart   - npm i react-apexcharts
 react-use    - npm i react-use
 Tailwind Css
 
-Preview App - [ProShop e-Commerce](https://proshop-ecommerce123.herokuapp.com)
+Preview App - [Weather App](https://meteo-4s4nzjbp2-ptal.vercel.app/)
 
 
 ## Get Started
