@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { useLocalStorage } from "react-use";
 import {city} from '../data/city'
 
 const AppContext = createContext()
@@ -7,7 +8,8 @@ export const AppProvider = ({children}) => {
 
     const [inputValue, setInputValue] = useState()
     const [cityData, setCitydata] = useState(city)
-    const [favourite, setFavourite] = useState ([])
+    const [storedFavs, setStoredFavs] = useLocalStorage("favs", [])
+    const [favourite, setFavourite] = useState (storedFavs)
     const [openMenu, setOpenMenu] = useState(false)
     // const [starredIcon, setStarredIcon] = useState()
 
@@ -48,6 +50,10 @@ export const AppProvider = ({children}) => {
   function handleOpenmenu(){
     setOpenMenu(!openMenu)
   }
+
+  useEffect(()=> {
+    setStoredFavs(favourite)
+  },[favourite])
     
     return <AppContext.Provider value={{
         cityData,
