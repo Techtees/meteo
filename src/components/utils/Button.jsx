@@ -1,6 +1,6 @@
-function Button ({text}) {
+function Button ({text, btnType, handleClick}) {
      return(
-        <button type="button" className='border max-w-[400px] border-r-primary-purple_dark rounded-md p-3 pr-[3rem] pl-[3rem] ' >{text}</button>
+        <button type='button' className='max-w-[400px] border border-primary-purple hover:text-white hover:bg-primary-purple duration-500 rounded-md p-3 pr-[3rem] pl-[3rem] ' onClick={handleClick}>{text}</button>
      )
 }
 
