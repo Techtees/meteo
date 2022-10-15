@@ -1,6 +1,6 @@
 import ReactApexChart from "react-apexcharts";
 import MobileIcon from "./utils/MobileIcon";
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect } from "react";
 import SettingContext from "../context/SettingContext";
 import { getAllWeatherData } from "../data/api/weather";
 import { useSearchParams } from "react-router-dom";
@@ -69,7 +69,7 @@ function DisplayData() {
         }
       ).then(setGraphData);
     }
-  }, [data]);
+  }, [data,currentView,lat,long,settings]);
 
   const handleSelectView = () => {
     setIsHourly(!isHourly);
