@@ -143,7 +143,7 @@ function DisplayData() {
           </h1>
           <div className="mt-[2rem] gap-2 grid md:grid-rows-3   md:grid-flow-col h-[170px] md:h-auto md:w-[100%] overflow-y-scroll ">
             {(selectView ? hourlyData : dailyData).map((data, index) => (
-              <div key={index} className="">
+              <div key={data.value} className="">
                 <input
                   onChange={(e) => handleSelectData(e, data.value)}
                   type="checkbox"
