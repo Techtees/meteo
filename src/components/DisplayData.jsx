@@ -117,7 +117,7 @@ function DisplayData() {
   
 
   return (
-    <div className="w-[100%] h-auto overflow-hidden relative">
+    <div className="w-[100%] relative">
       <MobileIcon />
       <div className="mx-auto">
         <div className="mt-[3rem] p-3 ">
