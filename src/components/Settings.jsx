@@ -88,20 +88,20 @@ function Settings() {
                     </div>
                     <p className="text-center mt-[2rem] md:mt-[4rem] text-xl italic">Timezone</p>   
                     <div className="flex flex-col justify-center items-center ">
-                        <select name="" id="" className="p-3 mt-2 md:mt-4  w-[70%] rounded-md border " onChange={(e) => handleTimezone(e)}> 
+                        <select name="" id="" className="p-3 mt-2 md:mt-4  w-[70%] rounded-md border " value={timezone} onChange={(e) => handleTimezone(e)}> 
                             {
                                 timezoneOptions.map((data) => (
-                                    <option key={data.id} selected={data.value === timezone} value={data.value}  >{data.label}</option>
+                                    <option key={data.id} value={data.value}   >{data.label}</option>
                                 ))
                             }
                         </select>
                     </div> 
                     <p className="text-center text-xl mt-6 italic">PastDays</p>   
                     <div className="flex flex-col justify-center items-center">
-                        <select name="" id="" className="p-3 mt-2 md:mt-4 rounded-md w-[70%]  border " onChange={(e) => handlePastDays(e)}> 
+                        <select name="" id="" className="p-3 mt-2 md:mt-4 rounded-md w-[70%]  border" value={pastDays} onChange={(e) => handlePastDays(e)}> 
                             {
                                  daysOptions.map((data) => (
-                                    <option key={data.id}  selected={data.value === pastDays} value={data.value}   >{data.label}</option>
+                                    <option key={data.id}  value={data.value}  >{data.label}</option>
                                 ))
                             }
                             {/* <option value="">Daily View</option> */}
