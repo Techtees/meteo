@@ -48,8 +48,10 @@ export const SettingProvider = ({ children }) => {
 
   const handleRevertSettings = () => {
     setSettings(defaultSetings);
+    window.location.reload();
+
   };
-  const handleDeletefavourite = () => {};
+ 
 
   useEffect(() => {
     setSettings((prevSetting) => {
