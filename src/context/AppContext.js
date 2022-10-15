@@ -69,7 +69,8 @@ export const AppProvider = ({children}) => {
         openMenu,
         handleOpenmenu,
         setFavourite,
-        deleteAllFavourite
+        deleteAllFavourite,
+        setCitydata
     }} >
       {children}
     </AppContext.Provider>
