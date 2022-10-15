@@ -3,7 +3,7 @@ import { useLocalStorage } from "react-use";
 
 const defaultSetings = {
   temperature_unit: "celsius",
-  windspeed_unit: "km/h",
+  windspeed_unit: "kmh",
   precipitation_unit: "mm",
   timezone: "UTC",
   past_days: "0",
@@ -11,19 +11,19 @@ const defaultSetings = {
 const SettingContext = createContext(defaultSetings);
 
 export const SettingProvider = ({ children }) => {
-  const [setting, setSettings] = useLocalStorage(
+  const [settings, setSettings] = useLocalStorage(
     "settingsData",
     defaultSetings
   );
-  const [tempUnit, setTempUnit] = useState(setting.temperature_unit);
-  const [windUnit, setWindUnit] = useState(setting.windspeed_unit);
+  const [tempUnit, setTempUnit] = useState(settings.temperature_unit);
+  const [windUnit, setWindUnit] = useState(settings.windspeed_unit);
   const [precipitationUnit, setPrecipitationUnit] = useState(
-    setting.precipitation_unit
+    settings.precipitation_unit
   );
-  const [timezone, setTimezone] = useState(setting.timezone);
-  const [pastDays, setPastDays] = useState(setting.past_days);
+  const [timezone, setTimezone] = useState(settings.timezone);
+  const [pastDays, setPastDays] = useState(settings.past_days);
 
-  console.log(setting);
+//   console.log(setting);
 
   const handleTemperature = (e) => {
     const tempValue = e.target.value;
@@ -71,7 +71,7 @@ export const SettingProvider = ({ children }) => {
         handlePastDays,
         handleTimezone,
         handleWind,
-        setting,
+        settings,
         setSettings,
         tempUnit,
         windUnit,
